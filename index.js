@@ -9,19 +9,22 @@ function write (filename) {
 	return fs.createWriteStream(path.join('.', 'dist', filename));
 }
 
+try {
+    fs.mkdirSync(path.join('.', 'dist'));
+} catch (e) {}
 
 browserify({
-	entries: [
-		"src/a/index.js",
-		"src/a-b/index.js",
-	],
-	debug: true,
+    entries: [
+        "src/a/index.js",
+        "src/a-b/index.js",
+    ],
+    debug: true,
 })
-	.transform('require-globify')
-	.plugin('factor-bundle', {
-		outputs: ['a.js', 'a-b.js'].map(write),
-		threshold: 1,
-	})
-	.bundle()
-	.pipe(write('common.js'))
+    .transform('require-globify')
+    .plugin('factor-bundle', {
+        outputs: ['a.js', 'b.js'].map(write),
+        threshold: 1,
+    })
+    .bundle()
+    .pipe(write('common.js'))
 
