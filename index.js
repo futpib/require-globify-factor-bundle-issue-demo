@@ -20,7 +20,6 @@ browserify({
     ],
     debug: true,
 })
-    .transform('require-globify')
     .plugin('factor-bundle', {
         outputs: ['a.js', 'b.js'].map(write),
         threshold: 1,

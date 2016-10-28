@@ -4,7 +4,6 @@
   "main": "index.js",
   "dependencies": {
     "browserify": "^13.1.1",
-    "factor-bundle": "^2.5.0",
-    "require-globify": "^1.4.1"
+    "factor-bundle": "^2.5.0"
   }
 }

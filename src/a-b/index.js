@@ -1,1 +1,1 @@
-module.exports = require('./lib/**/*.js', { mode: 'hash' });
+module.exports = require('./lib/util.js');
